@@ -1958,6 +1958,7 @@ static inline cputime_t task_gtime(struct task_struct *t)
 #endif
 extern void task_cputime_adjusted(struct task_struct *p, cputime_t *ut, cputime_t *st);
 extern void thread_group_cputime_adjusted(struct task_struct *p, cputime_t *ut, cputime_t *st);
+EXPORT_SYMBOL(thread_group_cputime_adjusted);
 
 /*
  * Per process flags

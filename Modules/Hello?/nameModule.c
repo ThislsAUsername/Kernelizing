@@ -25,21 +25,22 @@ typedef struct ProcessShell {
 	struct ProcessShell* parent;
 }* head;
 pid_t innocents[MAX_INNOCENTS];
+int currentInnocents = 0;
 int data;
 
 static int threadThing(void* input){
-	int i = 0;	
+	int currentInnocents = 0;	
 	for_each_process(t)
 	{
-		if (i < MAX_INNOCENTS)
+		if (currentInnocents < MAX_INNOCENTS)
 		{
-			innocents[i] = t->pid;
+			innocents[currentInnocents] = t->pid;
 		}
-		i++;
+		currentInnocents++;
 	}
 	while (!kthread_should_stop()){
 		schedule();
-		
+		//kill(pid, SIGKILL);
 	}
 	return 0;
 }

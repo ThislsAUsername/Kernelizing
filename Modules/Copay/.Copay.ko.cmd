@@ -1,0 +1,1 @@
+cmd_/home/visage/Desktop/Kernelizing/Modules/Copay/Copay.ko := ld -r -m elf_i386 -T ./scripts/module-common.lds --build-id  -o /home/visage/Desktop/Kernelizing/Modules/Copay/Copay.ko /home/visage/Desktop/Kernelizing/Modules/Copay/Copay.o /home/visage/Desktop/Kernelizing/Modules/Copay/Copay.mod.o
