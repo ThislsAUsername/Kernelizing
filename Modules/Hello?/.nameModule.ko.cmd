@@ -1,1 +1,1 @@
-cmd_/home/visage/Desktop/Hello?/nameModule.ko := ld -r -m elf_i386 -T ./scripts/module-common.lds --build-id  -o /home/visage/Desktop/Hello?/nameModule.ko /home/visage/Desktop/Hello?/nameModule.o /home/visage/Desktop/Hello?/nameModule.mod.o
+cmd_/home/visage/Desktop/Kernelizing/Modules/Hello?/nameModule.ko := ld -r -m elf_i386 -T ./scripts/module-common.lds --build-id  -o /home/visage/Desktop/Kernelizing/Modules/Hello?/nameModule.ko /home/visage/Desktop/Kernelizing/Modules/Hello?/nameModule.o /home/visage/Desktop/Kernelizing/Modules/Hello?/nameModule.mod.o

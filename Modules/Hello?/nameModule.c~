@@ -13,7 +13,6 @@
 
 struct task_struct *task;
 typedef struct ProcessShell {
-	bool propogated;
 	int childrenCount;
 	int hr;
 	int min;

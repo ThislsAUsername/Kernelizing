@@ -1,2 +1,2 @@
-/home/visage/Desktop/Hello?/nameModule.ko
-/home/visage/Desktop/Hello?/nameModule.o
+/home/visage/Desktop/Kernelizing/Modules/Hello?/nameModule.ko
+/home/visage/Desktop/Kernelizing/Modules/Hello?/nameModule.o
