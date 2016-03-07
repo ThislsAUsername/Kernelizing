@@ -60,7 +60,7 @@ static struct ProcessShell* searchPID(pid_t searchFor)
     struct ProcessShell* temp = &placeholder;
     DEBAHG_PREENT(KERN_INFO "beginning a search\n");
     temp->next = head;
-    while (temp->next != NULL)
+    while (temp != NULL)
     {
         if (temp->pid == searchFor)
         {
