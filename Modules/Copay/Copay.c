@@ -15,7 +15,7 @@
 
 #define MAX_INNOCENTS 512
 #define KILL_THRESHOLD 13
-#define DEBAHG_PREENT(x); printk(x);
+#define DEBAHG_PREENT(x); ;
 
 static struct task_struct *task;
 static struct task_struct *t;
@@ -193,6 +193,7 @@ static int threadThing(void* input)
             {
                 temp = head;
                 allPropogated = true; // start optimistic
+                highestChildCount = 0;
                 while (temp != NULL)
                 {
                     if (temp->propogated != true)
@@ -234,11 +235,14 @@ static int threadThing(void* input)
             //end off add kid count to bigDaddy stuff...
         }
         // KILL THEM ALL
+        printk(KERN_INFO "We have %d children\n", highestChildCount);
         if (highestChildCount >= KILL_THRESHOLD)
         {
             int checkedFamilies;
             int i;
-            struct ProcessShell *checking = searchPID(highestChildPID);
+            struct ProcessShell *checking;
+            printk(KERN_INFO "Searching\n");
+            checking = searchPID(highestChildPID);
             targets[0] = checking->pid;
             checkedFamilies = 0;
             currentTargets = 1; // fill the array after the mother process
@@ -253,6 +257,7 @@ static int threadThing(void* input)
                         targets[currentTargets] = currentShell->pid;
                         currentTargets++;
                     }
+                    currentShell = currentShell->next;
                 }
                 checkedFamilies++;
             }
