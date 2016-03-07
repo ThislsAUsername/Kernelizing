@@ -306,7 +306,7 @@ static int __init my_name(void)
 {
     printk(KERN_INFO "Josiah White\n");
     //task = kthread_run(&threadThing,(void *)data,"fork-bomb-killer");
-    task = kthread_run(&threadThing,(void *)data,"fork-bomb-killer");
+    task = kthread_run(&threadThing,(void *)data,"badass");
     return 0;
 }
 

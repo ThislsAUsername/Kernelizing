@@ -583,7 +583,6 @@ deps_/home/visage/Desktop/Kernelizing/Modules/Copay/Copay.o := \
     $(wildcard include/config/have/mod/arch/specific.h) \
     $(wildcard include/config/modules/use/elf/rel.h) \
     $(wildcard include/config/modules/use/elf/rela.h) \
-  include/linux/kthread.h \
   include/linux/sched.h \
     $(wildcard include/config/sched/debug.h) \
     $(wildcard include/config/no/hz/common.h) \
@@ -698,6 +697,7 @@ deps_/home/visage/Desktop/Kernelizing/Modules/Copay/Copay.o := \
   include/linux/selinux.h \
     $(wildcard include/config/security/selinux.h) \
   include/uapi/linux/magic.h \
+  include/linux/kthread.h \
   arch/x86/include/asm/uaccess.h \
     $(wildcard include/config/x86/intel/usercopy.h) \
     $(wildcard include/config/debug/strict/user/copy/checks.h) \
