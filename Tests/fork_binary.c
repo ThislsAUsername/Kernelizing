@@ -6,9 +6,10 @@
  */
 
 #include <stdio.h>
-
 #include <unistd.h>
+#include <stdlib.h>
 
+#include "sig_handling.c"
 
 
 
@@ -23,6 +24,8 @@ int main(int argc, char **argv)
 	}
 
 	int n = strtol(argv[1], NULL, 10);
+
+        register_handlers();
 
 	int p = getpid();
 	printf("%d\n", p);

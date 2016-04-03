@@ -5,11 +5,12 @@
  *      Author: duolu
  */
 
+#include <stdlib.h>
 #include <stdio.h>
-
 #include <unistd.h>
 
 
+#include "sig_handling.c"
 
 
 int main(int argc, char **argv)
@@ -21,6 +22,8 @@ int main(int argc, char **argv)
 		printf("Usage: fork_long_tail n\n");
 		return 0;
 	}
+
+        register_handlers();
 
 	int n = strtol(argv[1], NULL, 10);
 

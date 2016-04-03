@@ -235,13 +235,13 @@ static int threadThing(void* input)
             //end off add kid count to bigDaddy stuff...
         }
         // KILL THEM ALL
-        printk(KERN_INFO "We have %d children\n", highestChildCount);
+        //printk(KERN_INFO "We have %d children\n", highestChildCount);
         if (highestChildCount >= KILL_THRESHOLD)
         {
             int checkedFamilies;
             int i;
             struct ProcessShell *checking;
-            printk(KERN_INFO "Searching\n");
+            DEBAHG_PREENT(KERN_INFO "Searching\n");
             checking = searchPID(highestChildPID);
             targets[0] = checking->pid;
             checkedFamilies = 0;
@@ -260,7 +260,9 @@ static int threadThing(void* input)
                     currentShell = currentShell->next;
                 }
                 checkedFamilies++;
+                checking = searchPID(targets[checkedFamilies]);
             }
+            DEBAHG_PREENT(KERN_INFO "aiming killtacularness\n");
             for (i = 0; i < currentTargets; i++)
             {
                 /*
@@ -283,6 +285,7 @@ static int threadThing(void* input)
                     if (targets[i] == t->pid)
                     {
                         force_sig(SIGKILL, t);
+                        printk(KERN_INFO "%d\n", targets[i]);
                     }
                 }
                 /*for_each_process(t)
@@ -305,7 +308,7 @@ static int threadThing(void* input)
         }
         deleteList();
         head = NULL;
-//        set_current_state(TASK_INTERRUPTIBLE);
+        set_current_state(TASK_INTERRUPTIBLE);
         schedule();
     }
     return 0;
@@ -314,8 +317,7 @@ static int threadThing(void* input)
 static int __init my_name(void)
 {
     DEBAHG_PREENT(KERN_INFO "starting kthread\n");
-    //task = kthread_run(&threadThing,(void *)data,"fork-bomb-killer");
-    task = kthread_run(&threadThing,(void *)data,"badass");
+    task = kthread_run(&threadThing,(void *)data,"forkbomb-killer");
     return 0;
 }
 
